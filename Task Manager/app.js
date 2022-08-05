@@ -1,8 +1,10 @@
 const express = require('express')
 const app = express()
-
+const tasks=require('./routes/tasks')
 
 const port=3000
+
+app.use(express.json())
 
 
 app.get('/hello',(req,res)=>{
@@ -10,6 +12,7 @@ res.send('Task Manager App')
 
 })
 
+app.use('/api/v1/tasks',tasks)
 
 // app.get('/api/v1/tasks')                -get all tasks
 // app.post('/api/v1/tasks')               -create a new task
@@ -19,6 +22,8 @@ res.send('Task Manager App')
 
 // api -> To specify its an api request, you can also use a route to serve a particular file like index.html
 // v1 -> To specify the version of the api
+
+
 
 
 
